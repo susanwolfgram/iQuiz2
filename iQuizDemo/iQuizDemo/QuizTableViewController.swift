@@ -78,7 +78,6 @@ class QuizTableViewController: UITableViewController {
         default :
             break
         }
-        
     }
 
     /*

@@ -22,13 +22,21 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
 
         // Do any additional setup after loading the view.
         
-        for button in self.view.subviews {
-            if button.isKindOfClass(UIButton) {
-                let b = button as! UIButton
-                b.addTarget(self, action: "moveToAnswer:", forControlEvents: UIControlEvents.TouchUpInside)
-                b.hidden = true
-            }
-        }
+//        for button in self.view.subviews {
+//            if button.isKindOfClass(UIButton) {
+//                let b = button as! UIButton
+//                b.addTarget(self, action: "moveToAnswer:", forControlEvents: UIControlEvents.TouchUpInside)
+//                b.hidden = true
+//            }
+//        }
+        self.answer1.hidden = true
+        self.answer1.addTarget(self, action: "moveToAnswer:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.answer2.hidden = true
+        self.answer2.addTarget(self, action: "moveToAnswer:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.answer3.hidden = true
+        self.answer3.addTarget(self, action: "moveToAnswer:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.answer4.hidden = true
+        self.answer4.addTarget(self, action: "moveToAnswer:", forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     func moveToAnswer(sender : UIButton) {
@@ -50,7 +58,7 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         return self.questions.count
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let q = questions[indexPath.row]
         self.answer1.hidden = false
         self.answer2.hidden = false
@@ -70,7 +78,10 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         view.selectedAnswer = (button.titleLabel?.text)!
         view.correctAnswer = self.correctAnswer
     }
-
+    
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//    }
     /*
     // MARK: - Navigation
 
