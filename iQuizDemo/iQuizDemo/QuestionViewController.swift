@@ -59,11 +59,16 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        NSLog("selected \(indexPath)")
+        
         let q = questions[indexPath.row]
+        NSLog("question: \(q)")
         self.answer1.hidden = false
         self.answer2.hidden = false
         self.answer3.hidden = false
         self.answer4.hidden = false
+
+        NSLog("answer1 = \(answer1.titleLabel?.text)")
         
         self.answer1.titleLabel?.text = q.answers[0]
         self.answer2.titleLabel?.text = q.answers[1]
